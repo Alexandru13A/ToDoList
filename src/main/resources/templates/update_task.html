@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Task</title>
+</head>
+<body>
+<div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/tasks}">TASKS</a>
+        </li>
+    </ul>
+</div>
+
+<h1>Edit Task</h1>
+<form th:action="@{/tasks/{id} (id=${task.id})}" th:object="${task}" method="POST">
+    <div>
+        <label>TASK STATUS</label>
+        <input type="checkbox"
+               name="status"
+               th:field="*{status}"
+               class="form-control"
+               value="true"
+        />
+    </div>
+    <input type="submit" value="Update"/>
+</form>
+</body>
+</html>
